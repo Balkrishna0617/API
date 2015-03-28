@@ -12,10 +12,12 @@ var uploadImage = require('./routes/uploadImage/uploadImage');
 var search = require('./routes/search/search');
 var clickImage = require('./routes/clickImage/clickImage');
 var userProfile = require('./routes/userProfile/userProfile');
+var userHome = require('./routes/userHome/userHome');
 var comments = require('./routes/comments/comments');
+var editPic = require('./routes/editPic/editPic');
 
+app.use(express.static(__dirname + "/public"));										//static file directory
 
-app.use(express.static(__dirname + "/public"));										// html and controller file
 app.use(bodyParser.json());
 app.use('/', home);
 app.use('/uploadImage',uploadImage);
@@ -24,6 +26,8 @@ app.use('/search',search);
 app.use('/clickImage',clickImage);
 app.use('/userProfile',userProfile);
 app.use('/comments',comments);
+app.use('/userHome',userHome);
+app.use('/editPic',editPic);
 // ===================================================== HOME PAGE ============================================================
 
 // var initUsrName = [];							// stores usernames and dp path
@@ -269,8 +273,8 @@ app.use('/comments',comments);
 // });
 
 //============================================= Uploader's Profile Page ==========================================
-var uploaderResult = [];
-var likeArray = [];
+// var uploaderResult = [];
+// var likeArray = [];
 // function initializelikeArray(req, res, next){
 // 	likes.Likes.find({ uid : mongojs.ObjectId(req.body.uid) }, { pid : 1 }, function(err, docs){
 // 		docs.forEach( function(doc){
@@ -303,25 +307,25 @@ var likeArray = [];
 // 	});
 // });
 
-app.post('/uploaderLike',function(req, res, next){
-	likeArray = [];
-	// var uID = req.body.uid;
-	// var start = parseInt(req.body.strt);
-	// initializelikeArray(uID);
-	console.log("inside first middleware");
-	console.log("user id is " + req.body.uid);
-	likes.Likes.find({ uid : mongojs.ObjectId(req.body.uid) }, { pid : 1 }, function(err, docs){
-		docs.forEach( function(doc){
- 			likeArray.push(doc.pid);
- 		});	
-	});
-	// console.log(likeArray);
-	next();
-}, function(req, res, next){
-	console.log("inside second middleware");
+// app.post('/uploaderLike',function(req, res, next){
+// 	likeArray = [];
+// 	// var uID = req.body.uid;
+// 	// var start = parseInt(req.body.strt);
+// 	// initializelikeArray(uID);
+// 	console.log("inside first middleware");
+// 	console.log("user id is " + req.body.uid);
+// 	likes.Likes.find({ uid : mongojs.ObjectId(req.body.uid) }, { pid : 1 }, function(err, docs){
+// 		docs.forEach( function(doc){
+//  			likeArray.push(doc.pid);
+//  		});	
+// 	});
+// 	// console.log(likeArray);
+// 	next();
+// }, function(req, res, next){
+// 	console.log("inside second middleware");
 	
-	res.send("End of Middleware execution....");
-});
+// 	res.send("End of Middleware execution....");
+// });
 
 
 

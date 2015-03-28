@@ -122,10 +122,48 @@ myApp.controller('appCtrl',['$scope','$http',function($scope,$http){
 		});
 	};
 
+	$scope.getOwnInfo = function(){
+		$http.post('/userProfile',$scope.user).success(function(response){
+			console.log(response);
+			$scope.User = response;
+		});
+	};
 
+	$scope.getOwnPost = function(){
+		// console.log("inside getUpldrPost() function...");
+		// $scope.user = {
+		// 	uid : "55041c5ec20ec607edaf7729",
+		// 	strt : 0
+		// };
+		// // console.log($scope.user);
+		$http.post('/userHome/post',$scope.user).success(function(response){
+			console.log(response);
+			$scope.Posts = response;
+		});
+	};
 
+	$scope.getOwnLike = function(){
+		$http.post('/userHome/like',$scope.user).success(function(response){
+			console.log(response);
+			$scope.Likes = response;
+		});	
+	}
 
-
+	$scope.getPostDetail = function(){
+		$http.post('/editPic',$scope.image).success(function(response){
+			$scope.Post = response;
+		});
+	}
+	$scope.updatePostDetail = function(){
+		$scope.abc = {
+			_id : "550aced6480aab8b18f8b773",
+			description : "My Image",
+			tags : ["Bridal", "Common"] 
+		}
+		$http.post('/editPic/update',$scope.abc).success(function(response){
+			console.log(response);
+		});	
+	}
 
 
 

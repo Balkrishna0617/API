@@ -10,7 +10,7 @@ router.use(bodyParser.json());
 var done=false;
 var postId;
 
-router.use(multer({ dest: './uploads/',
+router.use(multer({ dest: './public/uploads/',
  rename: function (fieldname, filename) {
     console.log("renaming file....");
     return filename+Date.now();
@@ -48,7 +48,7 @@ router.post('/photo',function(req,res){
 
   
   if(done==true){   
-    posts.Posts.insert({ "uid" : mongojs.ObjectId(uid), "description" : desc, "caption" : req.files.userPhoto.name, "imagePath" : req.files.userPhoto.path, "tags" : tags, "cntLikes" : 13, "cntShares" : 13, "cntComments" : 13, "uploadDate" : new Date() }, function(err, docs){
+    posts.Posts.insert({ "uid" : mongojs.ObjectId(uid), "description" : desc, "caption" : req.files.userPhoto.name, "imagePath" : "uploads/"+req.files.userPhoto.name, "tags" : tags, "cntLikes" : 14, "cntShares" : 14, "cntComments" : 14, "uploadDate" : new Date() }, function(err, docs){
          postId = docs._id.toString();
          console.log(" new post id is : " + postId);
          tags = "";    

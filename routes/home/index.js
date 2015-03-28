@@ -65,7 +65,7 @@ router.post('/popular', function(req, res){													// post request handler 
 			result.push(row);
 			row = {};
 		}
-		console.log(result);
+		// console.log(result);
 		res.send(result);
 	});
 });
