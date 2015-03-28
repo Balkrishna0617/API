@@ -1,0 +1,43 @@
+<!DOCTYPE>
+<html ng-app="MehendiApp">
+<head>
+	<title>
+		index - MehendiApp
+	</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+</head>
+<body>
+	<div class="container" ng-controller="appCtrl">
+		<h1>Mehedi App - Search Page</h1>
+		<table class="table">
+   		<thead>
+   			<tr>
+               <th>User ID</th>
+   				<th>DP Path</th>
+   				<th>Name</th>
+               <th>Image ID</th>
+   				<th>Image Path</th>
+               <th>No. of Likes</th>
+   			</tr>
+   		</thead>
+   		<tbody>
+   			<tr ng-repeat="Post in Posts">
+               <td>{{ Post.uid }}</td>
+   				<td>{{ Post.DPPath }}</td>
+   				<td>{{ Post.userName }}</td>
+               <td>{{ Post.imageId }}</td>
+   				<td>{{ Post.imagePath }} </td>
+               <td>{{ Post.cntLikes }}</td>               
+   			</tr>
+   		</tbody>
+   	</table>   
+      <button ng-click="search()">Search</button>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="controllers/controller.js"></script>	
+</body>
+</html>

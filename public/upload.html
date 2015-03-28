@@ -1,0 +1,22 @@
+<!DOCTYPE>
+<html>
+<head>
+	<title> File Upload </title>
+</head>
+<body>
+<form id        =  "uploadForm"
+     enctype   =  "multipart/form-data"
+     action    =  "/api/photo"
+     method    =  "post"
+>
+<input type="file" name="userPhoto" /><br/>
+<input type="hidden" name="userId" value="55041d52c20ec607edaf772e"/>
+<textarea name="desc"></textarea><br/>
+<input type="checkbox" name="tagName" value="dog"/> dog <br/>
+<input type="checkbox" name="tagName" value="cat"/> cat <br/>
+<input type="checkbox" name="tagName" value="fish"/> fish<br/>
+<input type="submit" value="Upload Image" name="submit">
+</form>
+<!-- <script src="controllers/controller.js"></script> -->
+</body>
+</html>

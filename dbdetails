@@ -1,0 +1,56 @@
+Posts Table :
+
+db.Posts.update(
+    { _id: ObjectId("55042d87c20ec607edaf7736") },
+    {
+      $set: {
+        uid: ObjectId("55041dd7c20ec607edaf772f")
+      },
+      $currentDate: { uploadDate: true }
+    }
+)
+
+
+user_id = ObjectId("55041c5ec20ec607edaf7729")
+post_id = ObjectId("55042c9ac20ec607edaf7730")
+			ObjectId("55042da7c20ec607edaf7737"
+
+user_id = ObjectId("55041cadc20ec607edaf772a")
+post_id = ObjectId("55042ce0c20ec607edaf7731")
+
+
+user_id = ObjectId("55041cd4c20ec607edaf772b")
+post_id = ObjectId("55042cfdc20ec607edaf7732")
+			ObjectId("55042dcbc20ec607edaf7738")
+
+user_id = ObjectId("55041cfec20ec607edaf772c")
+post_id = ObjectId("55042d18c20ec607edaf7733")
+
+
+user_id = ObjectId("55041d2dc20ec607edaf772d")
+post_id = ObjectId("55042d36c20ec607edaf7734")
+
+
+user_id = ObjectId("55041d52c20ec607edaf772e")
+post_id = ObjectId("55042d4cc20ec607edaf7735")
+
+
+user_id = ObjectId("55041dd7c20ec607edaf772f")
+post_id = ObjectId("55042d87c20ec607edaf7736")
+
+
+Likes Table :
+
+db.Likes.update(
+    { _id: ObjectId("55042ecec20ec607edaf7739") },
+    {
+      $set: {
+        uid: ObjectId("55041dd7c20ec607edaf772f")
+      },
+      $currentDate: { uploadDate: true }
+    }
+)
+
+like_id = 
+post_id =
+user_id =

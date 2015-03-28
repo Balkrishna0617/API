@@ -1,0 +1,75 @@
+<!DOCTYPE>
+<html ng-app="MehendiApp">
+<head>
+	<title>
+		Image click Page
+	</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+</head>
+<body>
+	<div class="container" ng-controller="appCtrl">
+		<h1>Mehedi App - Uploader Page</h1>
+		<table class="table">
+   		<thead>
+   			<tr>
+               <th>User ID</th>
+   				<th>DP Path</th>
+   				<th>Name</th>
+   			</tr>
+   		</thead>
+   		<tbody>
+   			<tr>
+               <td>{{ Profile._id }}</td>
+   				<td>{{ Profile.DPPath }}</td>
+   				<td>{{ Profile.userName }}</td>
+   			</tr>
+   		</tbody>
+   	</table>
+   	<input type="text" ng-model="user.uid"/>{{ user.uid }}<br/>
+	<button type="button" ng-click="getUserInfo()"/>User Info</button>
+   	
+   	<table class="table">
+   		<thead>
+   			<tr>
+               <th>Image ID</th>
+   				<th>Image Path</th>
+   				<th>Likes</th>
+   			</tr>
+   		</thead>
+   		<tbody>
+   			<tr ng-repeat="Post in Posts">
+               <td>{{ Post._id }}</td>
+   				<td>{{ Post.imagePath }}</td>
+   				<td>{{ Post.cntLikes }}</td>
+   			</tr>
+   		</tbody>
+   	</table>
+	<button type="button" ng-click="getUserPost()">User's Post</button>
+	
+	<table class="table">
+   		<thead>
+   			<tr>
+               <th>Image ID</th>
+   				<th>Image Path</th>
+   				<th>Likes</th>
+   			</tr>
+   		</thead>
+   		<tbody>
+   			<tr ng-repeat="Like in Likes">
+               <td>{{ Like._id }}</td>
+   				<td>{{ Like.imagePath }}</td>
+   				<td>{{ Like.cntLikes }}</td>
+   			</tr>
+   		</tbody>
+   	</table>
+	<button type="button" ng-click="getUserLike()">User's Like</button>
+
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="controllers/controller.js"></script>
+</body>
+</html>
