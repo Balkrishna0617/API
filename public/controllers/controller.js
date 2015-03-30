@@ -23,6 +23,7 @@ myApp.controller('appCtrl',['$scope','$http',function($scope,$http){
 		}
 		$http.post('/popular', $scope.popular).success(function(response){
 			$scope.Posts = response;
+			console.log(response);
 		});
 	};
 
