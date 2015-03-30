@@ -28,7 +28,7 @@
    		<tbody>
    			<tr ng-repeat="Post in Posts">
                <td>{{ Post.uid }}</td>
-   				<td>{{ Post.DPPath }}</td>
+   				<td><img ng-src="{{ Post.DPPath }}" width="80" height="60"/></td>
    				<td>{{ Post.userName }}</td>
                <td>{{ Post.imageId }}</td>
    				<td>{{ Post.imagePath }} </td>
@@ -37,8 +37,6 @@
    			</tr>
    		</tbody>
    	</table>
-<!--       <input type="text" ng-model="lim.beg"/>{{ lim.beg }}<br/>
-      Enter Tag Name : <input type="text" ng-model="tags.tagName"/>{{ tags.tagName }}<br/> -->
       <button ng-click="getRecent()">Sort By Recent</button>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
