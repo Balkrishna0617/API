@@ -42,13 +42,13 @@ router.post('/photo',function(req,res){
   }
 
 
-  console.log("User Name is : " + req.body.userId);
-  console.log("User checkbox is Array ?? : " + tags);
-  console.log("recieving image upload request.... file name :" + req.files.userPhoto.name)
+  // console.log("User Name is : " + req.body.userId);
+  // console.log("User checkbox is Array ?? : " + tags);
+  // console.log("recieving image upload request.... file name :" + req.files.userPhoto.name)
 
   
   if(done==true){   
-    posts.Posts.insert({ "uid" : mongojs.ObjectId(uid), "description" : desc, "caption" : req.files.userPhoto.name, "imagePath" : "uploads/"+req.files.userPhoto.name, "tags" : tags, "cntLikes" : 14, "cntShares" : 14, "cntComments" : 14, "uploadDate" : new Date() }, function(err, docs){
+    posts.Posts.insert({ "uid" : mongojs.ObjectId(uid), "description" : desc, "caption" : req.files.userPhoto.name, "imagePath" : "http://198.165.2.135:3000/uploads/"+req.files.userPhoto.name, "tags" : tags, "cntLikes" : 0, "cntShares" : 0, "cntComments" : 0, "uploadDate" : new Date() }, function(err, docs){
          postId = docs._id.toString();
          console.log(" new post id is : " + postId);
          tags = "";    
