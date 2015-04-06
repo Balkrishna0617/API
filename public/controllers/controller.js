@@ -46,6 +46,7 @@ myApp.controller('appCtrl',['$scope','$http',function($scope,$http){
 		}
 		$http.post('/search', $scope.tag).success(function(response){
 			$scope.Posts = response;
+			console.log(response);
 		});
 	};
 
@@ -166,7 +167,12 @@ myApp.controller('appCtrl',['$scope','$http',function($scope,$http){
 		});	
 	}
 
-
+	$scope.login = function(){
+		console.log($scope.user);
+		$http.post('/login',$scope.user).success(function(response){
+			console.log(response);
+		});
+	}
 
 
 

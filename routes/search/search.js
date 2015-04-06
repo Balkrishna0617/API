@@ -38,9 +38,9 @@ router.post('/', function(req, res){													// post request handler on '/se
 	result = [];
 	
 	var strt = parseInt(req.body.beg);														// getting the beggining of respense
-	var tagName = req.body.tagName;															// getting the tagName to filter the response
-	console.log(tagName + " " + strt);
-	posts.Posts.find({tags : { $in : tagName }}).sort({ cntLikes : -1}).skip(strt).limit(20, function(err, docs){ // queries Posts table to get the most popular post from post
+	var tagName = req.body.tagName;															// getting the tagName to filter the response	
+														
+	posts.Posts.find({tags : { $regex: ""+tagName[0]+"", $options: '-i' } }).sort({ cntLikes : -1}).skip(strt).limit(20, function(err, docs){ // queries Posts table to get the most popular post from post
  		var arrayLength = docs.length;
 		for (var i = 0; i < arrayLength; i++) {
 			row.imageId = docs[i]._id;
@@ -50,6 +50,7 @@ router.post('/', function(req, res){													// post request handler on '/se
 			result.push(row);
 			row = {};
 		}
+		console.log(result);
 		res.send(result);
 	});
 });

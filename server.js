@@ -15,9 +15,9 @@ var userProfile = require('./routes/userProfile/userProfile');
 var userHome = require('./routes/userHome/userHome');
 var comments = require('./routes/comments/comments');
 var editPic = require('./routes/editPic/editPic');
+var login = require('./routes/login/login');
 
 app.use(express.static(__dirname + "/public"));										//static file directory
-
 app.use(bodyParser.json());
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -33,6 +33,7 @@ app.use('/userProfile',userProfile);
 app.use('/comments',comments);
 app.use('/userHome',userHome);
 app.use('/editPic',editPic);
+app.use('/login',login);
 // ===================================================== HOME PAGE ============================================================
 
 // var initUsrName = [];							// stores usernames and dp path
